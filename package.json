@@ -1,0 +1,35 @@
+{
+  "name": "validue",
+  "version": "1.0.1",
+  "description": "Library based on \"class-validator\" , it will help easy you validate your fields, forms and etc. All you need to use decorators @PropertyValidate, @ActionValidate and all decorators from \"class-validator\" like @Max, @IsEmail and more",
+  "main": "index.js",
+  "author": "sployad",
+  "license": "ISC",
+  "scripts": {
+    "build": "npx babel src --out-dir dist"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "class-validator": "^0.11.0",
+    "vue-class-component": "^7.0.2",
+    "reflect-metadata": "^0.1.13",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.14.0",
+    "eslint-plugin-cypress": "^2.2.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "flow-bin": "^0.94.0",
+    "vue-to-js": "^0.9.4"
+  }
+}
