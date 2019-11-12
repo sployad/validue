@@ -1,7 +1,6 @@
 # ![enter image description here](https://github.com/sployad/validue/blob/master/example/src/assets/logo.png?raw=true)
 
-This library based on \"[class-validator\"](https://github.com/typestack/class-validator) , it will help to easy you validate your fields, forms and etc. All you need to use decorators @PropertyValidate, @ActionValidate and all decorators from \"class-validator\" like @Max, @IsEmail and more...
-
+This library is based on the \"[class-validator\"](https://github.com/typestack/class-validator)  library. It will help you easily validate your fields, forms and etc.. All you need to use is @PropertyValidate and @ActionValidate decorators, and all decorators from “class validator” such as @Max, @IsEmail and etc..
 
 # Instalation
 
@@ -11,7 +10,7 @@ This library based on \"[class-validator\"](https://github.com/typestack/class-v
 #### @PropertyValidator(path: string, validationFunctions?: Function[]):
 
 
-You need to add this decorator over a field, in which will be append errors after validation. First argument is what field will watch, it work like @Watch decorator in Vue. Second argument is not required , it is array of valiadtion functions, because you can use 2 ways of declaration validation your field.
+You need to add this decorator before the field, errors in which are written after validation. First argument is a field that is watched. It works like @Watch decorator in Vue. Second argument receives an array of validation functions. This argument is not required because you can use 2 methods to declare validation of your fields.
 
 > All decorators of "class-validator" in  [here](https://github.com/typestack/class-validator#validation-decorators)
 
@@ -68,7 +67,7 @@ Example:
     }
 
 ### @ActionValidator(group?: string[])
-This decorator you need add over a method, before call this method will be validate all fields or fields group and append errors to fields over which you added @PropertyValidator
+This decorator is added before the method. Thus, before the method is called, all fields and field groups are validated, and returned errors are written in fields with @ProperyValidator added before.
 Example without group: 
 
     import {Component, Vue} from "vue-property-decorator";  
