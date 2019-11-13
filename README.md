@@ -16,7 +16,7 @@ You need to add this decorator before the field, errors in which are written aft
 
 Example:
 1 Way:
-
+```typescript
     import {Component, Vue} from "vue-property-decorator";  
     import {IsNotEmpty, IsEmail, Length} from "class-validator";  
     import {ActionValidator, PropertyValidator} from "validue";  
@@ -38,11 +38,12 @@ Example:
 	    @PropertyValidator("email")  
 	    emailErrors = {};  
     }
+```
 
 2 Way:
-	
 
-     
+ ```typescript	
+   
     import {Component, Vue} from "vue-property-decorator";  
     import {IsNotEmpty, IsEmail, Length} from "class-validator";  
     import {ActionValidator, PropertyValidator} from "validue";  
@@ -65,11 +66,12 @@ Example:
         ])  
         emailErrors = {};  
     }
+```
 
 ### @ActionValidator(group?: string[])
 This decorator is added before the method. Thus, before the method is called, all fields and field groups are validated, and returned errors are written in fields with @ProperyValidator added before.
 Example without group: 
-
+```typescript
     import {Component, Vue} from "vue-property-decorator";  
     import {IsNotEmpty, IsEmail, Length} from "class-validator";  
     import {ActionValidator, PropertyValidator} from "validue";  
@@ -95,9 +97,11 @@ Example without group:
         send(){  
             console.log(this.firstNameErrors, this.emailErrors);  
         }  
-    }
+    } 
+```
+   
 Example with group:
-
+```typescript
     import {Component, Vue} from "vue-property-decorator";  
     import {IsNotEmpty, IsEmail, Length} from "class-validator";  
     import {ActionValidator, PropertyValidator} from "validue";  
@@ -148,4 +152,5 @@ Example with group:
         auth(){  
             //Will validate fields which have group 'auth'  
         }  
-    }
+    } 
+```
