@@ -11,12 +11,14 @@
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "sourceMap": true,
+    "declaration": true,
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
+    "outDir": "dist",
     "lib": [
       "esnext",
       "dom",

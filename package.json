@@ -1,9 +1,14 @@
 {
   "name": "validue",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "Library based on \"class-validator\" , it will help easy you validate your fields, forms and etc. All you need to use decorators @PropertyValidate, @ActionValidate and all decorators from \"class-validator\" like @Max, @IsEmail and more",
-  "main": "index.js",
-  "author": "sployad",
+  "main": "dist/index.js",
+  "author": "sployad <roman@neretin.pro>",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sployad/validue.git"
+  },
   "license": "ISC",
   "scripts": {
     "build": "npx babel src --out-dir dist"
@@ -12,24 +17,24 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "class-validator": "^0.11.0",
-    "vue-class-component": "^7.0.2",
+    "class-validator": "^0.12.2",
+    "vue-class-component": "^7.2.3",
     "reflect-metadata": "^0.1.13",
-    "vue": "^2.6.10"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-class-properties": "^7.3.4",
-    "@babel/plugin-proposal-decorators": "^7.3.0",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/preset-flow": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.14.0",
-    "eslint-plugin-cypress": "^2.2.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-vue": "^5.2.2",
-    "flow-bin": "^0.94.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-flow": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "flow-bin": "^0.123.0",
     "vue-to-js": "^0.9.4"
   }
 }

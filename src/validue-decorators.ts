@@ -1,8 +1,10 @@
 import 'reflect-metadata';
 import {createDecorator} from 'vue-class-component';
 import {WatchOptions} from 'vue';
-import {getFromContainer, MetadataStorage, ValidationError, Validator} from 'class-validator';
-import {ValidationExecutor} from 'class-validator/validation/ValidationExecutor';
+import {getMetadataStorage, ValidationError, Validator} from 'class-validator';
+// @ts-ignore
+import {ValidationExecutor} from 'class-validator/esm5/validation/ValidationExecutor';
+
 const validator = new Validator();
 
 export function PropertyValidator(path: string, validationFunctions?: Function[], options: WatchOptions = {}) {
@@ -32,14 +34,14 @@ export function PropertyValidator(path: string, validationFunctions?: Function[]
                 watch[path] = [];
             }
 
-            const targetValidationMetadatas = getFromContainer(MetadataStorage)
+            const targetValidationMetadatas = getMetadataStorage()
                 .getTargetValidationMetadatas(target.constructor, target.constructor as string, undefined);
 
             targetValidationMetadatas.filter((item) => item.propertyName === path).forEach((meta) => {
                 meta.groups = [...meta.groups || [], key];
             });
 
-            const handler = function(this: any, val: any) {
+            const handler = function (this: any, val: any) {
                 const executor = new ValidationExecutor(validator, {groups: [key]});
                 executor.ignoreAsyncValidations = true;
                 const validationErrors: ValidationError[] = [];
@@ -48,7 +50,7 @@ export function PropertyValidator(path: string, validationFunctions?: Function[]
                 let errorMessages = {};
 
                 if (errors.length) {
-                    errorMessages = errors.reduce((previousValue: any, value) => {
+                    errorMessages = errors.reduce((previousValue: any, value: any) => {
                         previousValue = {...previousValue, ...value.constraints};
                         return previousValue;
                     }, {});
@@ -71,7 +73,7 @@ export function ActionValidator(group?: string[]) {
 
         const originalMethod = descriptor.value;
 
-        descriptor.value = function(...args: any[]) {
+        descriptor.value = function (...args: any[]) {
             const metaProperty = Reflect.getMetadata('property-validation', target);
 
             const executor = new ValidationExecutor(validator, {groups: group || []});
@@ -81,8 +83,8 @@ export function ActionValidator(group?: string[]) {
             const errors = executor.stripEmptyErrors(validationErrors);
 
             if (errors.length) {
-                errors.forEach((error) => {
-                    this[metaProperty[error.property]] =  this[metaProperty[error.property]] || {};
+                errors.forEach((error: any) => {
+                    this[metaProperty[error.property]] = this[metaProperty[error.property]] || {};
                     this[metaProperty[error.property]] = {...error.constraints, ...this[metaProperty[error.property]]};
                 });
             }

@@ -28,23 +28,42 @@
     @Component({})
     export default class App extends Vue {
 
-        @IsNotEmpty({message: "Required field"})
-        @Length(1, 10, {message: "Field more then 10 chars or less then 1 char"})
+        @IsNotEmpty({message: "Required field", groups: ['registration']})
+        @Length(1, 10, {message: "Field more then 10 chars or less then 1 char", groups: ['registration']})
         firstName = "";
 
-        @IsNotEmpty({message: "Required field"})
-        @IsEmail({}, {message: "Wrong email address"})
-        email = "";
+        @IsNotEmpty({message: "Required field", groups: ['registration']})
+        @Length(1, 10, {message: "Field more then 10 chars or less then 1 char", groups: ['registration']})
+        lastName = "";
 
         @PropertyValidator("firstName")
         firstNameErrors = {};
 
+        @PropertyValidator("lastName")
+        lastNameErrors = {};
+
+        @IsNotEmpty({message: "Required field", groups: ['auth']})
+        @IsEmail({}, {message: "Wrong email address", groups: ['auth']})
+        email = "";
+
+        @IsNotEmpty({message: "Required field", groups: ['auth']})
+        @IsEmail({}, {message: "Wrong email address", groups: ['auth']})
+        password = "";
+
         @PropertyValidator("email")
         emailErrors = {};
 
-        @ActionValidator()
-        send(){
-            console.log(this.firstNameErrors, this.emailErrors);
+        @PropertyValidator("password")
+        passwordErrors = {};
+
+        @ActionValidator(['registration'])
+        register(){
+            //Will validate fields which have group 'registration'
+        }
+
+        @ActionValidator(['auth'])
+        auth(){
+            //Will validate fields which have group 'auth'
         }
     }
 </script>

@@ -1,5 +1,2 @@
-import {PropertyValidator, ActionValidator} from "./validue-decorators";
-
-export {
-    PropertyValidator, ActionValidator
-}
+export * from './validue-decorators'
+export * from 'class-validator'
