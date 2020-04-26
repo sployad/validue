@@ -11,19 +11,6 @@ This library is based on the \"[class-validator\"](https://github.com/typestack/
 
 
 You need to add this decorator before the field, errors in which are written after validation. First argument is a field that is watched. It works like @Watch decorator in Vue. Second argument receives an array of validation functions. This argument is not required because you can use 2 methods to declare validation of your fields.
-# ![enter image description here](https://github.com/sployad/validue/blob/master/example/src/assets/logo.png?raw=true)
-
-This library is based on the \"[class-validator\"](https://github.com/typestack/class-validator)  library. It will help you easily validate your fields, forms and etc.. All you need to use is @PropertyValidate and @ActionValidate decorators, and all decorators from “class validator” such as @Max, @IsEmail and etc..
-
-# Instalation
-
-    npm i validue
-
-## Usage
-#### @PropertyValidator(path: string, validationFunctions?: Function[]):
-
-
-You need to add this decorator before the field, errors in which are written after validation. First argument is a field that is watched. It works like @Watch decorator in Vue. Second argument receives an array of validation functions. This argument is not required because you can use 2 methods to declare validation of your fields.
 
 > All decorators of "class-validator" in  [here](https://github.com/typestack/class-validator#validation-decorators)
 
