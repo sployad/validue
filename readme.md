@@ -18,8 +18,7 @@ Example:
 1 Way:
 ```typescript
     import {Component, Vue} from "vue-property-decorator";  
-    import {IsNotEmpty, IsEmail, Length} from "class-validator";  
-    import {ActionValidator, PropertyValidator} from "validue";  
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
       
     @Component({})  
     export default class App extends Vue {  
@@ -45,8 +44,7 @@ Example:
  ```typescript	
    
     import {Component, Vue} from "vue-property-decorator";  
-    import {IsNotEmpty, IsEmail, Length} from "class-validator";  
-    import {ActionValidator, PropertyValidator} from "validue";  
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
       
     @Component({})  
     export default class App extends Vue {  
@@ -73,8 +71,7 @@ This decorator is added before the method. Thus, before the method is called, al
 Example without group: 
 ```typescript
     import {Component, Vue} from "vue-property-decorator";  
-    import {IsNotEmpty, IsEmail, Length} from "class-validator";  
-    import {ActionValidator, PropertyValidator} from "validue";  
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
       
     @Component({})  
     export default class App extends Vue {  
@@ -103,8 +100,7 @@ Example without group:
 Example with group:
 ```typescript
     import {Component, Vue} from "vue-property-decorator";  
-    import {IsNotEmpty, IsEmail, Length} from "class-validator";  
-    import {ActionValidator, PropertyValidator} from "validue";  
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
       
     @Component({})  
     export default class App extends Vue {  
