@@ -10,7 +10,7 @@ This library is based on the "[class-validator](https://github.com/typestack/cla
 # Demo
 Go to the link bellow for watch demo
 
- > [Link demo on the JSFiddle](https://jsfiddle.net/sployad/unyz50Lc/)
+> [Link demo on the codesandbox](https://codesandbox.io/s/headless-wave-1ri0c?file=/src/App.vue)
  
 # Example
 
