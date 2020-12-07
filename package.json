@@ -1,7 +1,7 @@
 {
   "name": "validue",
-  "version": "1.0.7",
-  "description": "Library based on \"class-validator\" , it will help easy you validate your fields, forms and etc. All you need to use decorators @PropertyValidate, @ActionValidate and all decorators from \"class-validator\" like @Max, @IsEmail and more",
+  "version": "1.1.0",
+  "description": "This library is based on the \"class-validator\" library. It will help you easily validate your fields, forms and etc.. All you need to use is @PropertyValidate and @ActionValidate decorators, and all decorators from “class validator” such as @Max, @IsEmail and etc..",
   "main": "dist/index.js",
   "author": "sployad <roman@neretin.pro>",
   "types": "dist/index.d.ts",
@@ -11,30 +11,39 @@
   },
   "license": "ISC",
   "scripts": {
-    "build": "npx babel src --out-dir dist"
+    "build": "npx babel src --out-dir dist",
+    "test:unit": "vue-cli-service test:unit"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "class-validator": "^0.12.2",
-    "vue-class-component": "^7.2.3",
     "reflect-metadata": "^0.1.13",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.1.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-decorators": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
-    "@babel/preset-flow": "^7.9.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-cypress": "^2.10.3",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "flow-bin": "^0.123.0",
-    "vue-to-js": "^0.9.4"
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^24.0.19",
+    "@types/jwt-decode": "^2.2.1",
+    "@types/node": "^13.11.0",
+    "@types/rosie": "0.0.37",
+    "@types/vue-color": "^2.4.2",
+    "@vue/cli-plugin-babel": "^4.2.0",
+    "@vue/cli-plugin-typescript": "^4.2.0",
+    "@vue/cli-plugin-unit-jest": "^4.3.1",
+    "@vue/cli-service": "^4.2.0",
+    "@vue/test-utils": "1.1.1",
+    "babel-jest": "^25.0.0",
+    "chromedriver": "80",
+    "geckodriver": "^1.19.1",
+    "jest": "^25.0.0",
+    "rosie": "^2.0.1",
+    "typescript": "~3.7.5",
+    "vue-jest": "^3.0.5",
+    "vue-template-compiler": "^2.6.11"
   }
 }

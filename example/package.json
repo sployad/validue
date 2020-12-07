@@ -8,9 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "validue": "^1.0.1",
     "vue": "^2.6.10",
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.12.2",
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.3.0"
   },

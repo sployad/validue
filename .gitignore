@@ -1,0 +1,9 @@
+# Project exclude paths
+/node_modules/
+/src/index.d.ts
+/src/index.js
+/src/index.js.map
+/src/validue-decorators.d.ts
+/src/validue-decorators.js
+/src/validue-decorators.js.map
+/index.js
