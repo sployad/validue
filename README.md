@@ -17,9 +17,8 @@ You need to add this decorator before the field, errors in which are written aft
 Example:
 1 Way:
 ```typescript
-    import {Component, Vue} from "vue-property-decorator";  
-    import {IsNotEmpty, IsEmail, Length} from "class-validator";  
-    import {ActionValidator, PropertyValidator} from "validue";  
+    import {Component, Vue} from "vue-property-decorator";    
+    import {ActionValidator, PropertyValidator,IsNotEmpty, IsEmail, Length} from "validue";  
       
     @Component({})  
     export default class App extends Vue {  
@@ -45,8 +44,7 @@ Example:
  ```typescript	
    
     import {Component, Vue} from "vue-property-decorator";  
-    import {IsNotEmpty, IsEmail, Length} from "class-validator";  
-    import {ActionValidator, PropertyValidator} from "validue";  
+    import {ActionValidator, PropertyValidator,IsNotEmpty, IsEmail, Length} from "validue";  
       
     @Component({})  
     export default class App extends Vue {  
@@ -73,8 +71,7 @@ This decorator is added before the method. Thus, before the method is called, al
 Example without group: 
 ```typescript
     import {Component, Vue} from "vue-property-decorator";  
-    import {IsNotEmpty, IsEmail, Length} from "class-validator";  
-    import {ActionValidator, PropertyValidator} from "validue";  
+    import {ActionValidator, PropertyValidator,IsNotEmpty, IsEmail, Length} from "validue";  
       
     @Component({})  
     export default class App extends Vue {  
@@ -103,8 +100,146 @@ Example without group:
 Example with group:
 ```typescript
     import {Component, Vue} from "vue-property-decorator";  
-    import {IsNotEmpty, IsEmail, Length} from "class-validator";  
-    import {ActionValidator, PropertyValidator} from "validue";  
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
+      
+    @Component({})  
+    export default class App extends Vue {  
+      
+        @IsNotEmpty({message: "Required field",
+        groups: ['registration']})  
+        @Length(1, 10, {message: "Field more then 10 chars or less then 1 char", 
+        groups: ['registration']})  
+        firstName = "";  
+      
+        @IsNotEmpty({message: "Required field", 
+        groups: ['registration']})  
+        @Length(1, 10, {message: "Field more then 10 chars or less then 1 char", 
+        groups: ['registration']})  
+        lastName = "";  
+      
+        @PropertyValidator("firstName")  
+        firstNameErrors = {};  
+      
+        @PropertyValidator("lastName")  
+        lastNameErrors = {};  
+      
+        @IsNotEmpty({message: "Required field", 
+        groups: ['auth']})  
+        @IsEmail({}, {message: "Wrong email address", groups: ['auth']})  
+        email = "";  
+      
+        @IsNotEmpty({message: "Required field", 
+        groups: ['auth']})  
+        @IsEmail({}, {message: "Wrong email address", groups: ['auth']})  
+        password = "";  
+      
+        @PropertyValidator("email")  
+        emailErrors = {};  
+      
+        @PropertyValidator("password")  
+        passwordErrors = {};  
+      
+        @ActionValidator(['registration'])  
+        register(){  
+            //Will validate fields which have group 'registration'  
+        }  
+      
+        @ActionValidator(['auth'])  
+        auth(){  
+            //Will validate fields which have group 'auth'  
+        }  
+    } 
+```
+
+> All decorators of "class-validator" in  [here](https://github.com/typestack/class-validator#validation-decorators)
+
+Example:
+1 Way:
+```typescript
+    import {Component, Vue} from "vue-property-decorator";  
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
+      
+    @Component({})  
+    export default class App extends Vue {  
+      
+	    @IsNotEmpty({message: "Required field"})  
+	    @Length(1, 10, {message: "Field more then 10 chars or less then 1 char"})  
+	    firstName = "";  
+  
+	    @IsNotEmpty({message: "Required field"})  
+	    @IsEmail({}, {message: "Wrong email address"})  
+	    email = "";  
+  
+	    @PropertyValidator("firstName")  
+	    firstNameErrors = {};  
+  
+	    @PropertyValidator("email")  
+	    emailErrors = {};  
+    }
+```
+
+2 Way:
+
+ ```typescript	
+   
+    import {Component, Vue} from "vue-property-decorator";  
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
+      
+    @Component({})  
+    export default class App extends Vue {  
+      
+        firstName = "";  
+        email = "";  
+      
+        @PropertyValidator("firstName", [  
+            IsNotEmpty({message: "Required field"}),  
+            Length(1, 10, {message: "Field more then 10 chars or less then 1 char"})  
+        ])  
+        firstNameErrors = {};  
+      
+        @PropertyValidator("email", [  
+            IsNotEmpty({message: "Required field"}),  
+            IsEmail({}, {message: "Wrong email address"})  
+        ])  
+        emailErrors = {};  
+    }
+```
+
+### @ActionValidator(group?: string[])
+This decorator is added before the method. Thus, before the method is called, all fields and field groups are validated, and returned errors are written in fields with @ProperyValidator added before.
+Example without group: 
+```typescript
+    import {Component, Vue} from "vue-property-decorator";   
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
+      
+    @Component({})  
+    export default class App extends Vue {  
+      
+        @IsNotEmpty({message: "Required field"})  
+        @Length(1, 10, {message: "Field more then 10 chars or less then 1 char"})  
+        firstName = "";  
+      
+        @IsNotEmpty({message: "Required field"})  
+        @IsEmail({}, {message: "Wrong email address"})  
+        email = "";  
+      
+        @PropertyValidator("firstName")  
+        firstNameErrors = {};  
+      
+        @PropertyValidator("email")  
+        emailErrors = {};  
+      
+        @ActionValidator()  
+        send(){  
+            console.log(this.firstNameErrors, this.emailErrors);  
+        }  
+    } 
+```
+   
+Example with group:
+```typescript
+    import {Component, Vue} from "vue-property-decorator";  
+    import {ActionValidator, PropertyValidator, IsNotEmpty, IsEmail, Length} from "validue";  
       
     @Component({})  
     export default class App extends Vue {  
