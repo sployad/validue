@@ -11,8 +11,8 @@ This library is based on the "[class-validator](https://github.com/typestack/cla
 Go to the link bellow for watch demo
 
  > [Link demo on the JSFiddle](https://jsfiddle.net/sployad/unyz50Lc/)
-
-#Example
+ 
+# Example
 
 Validation errors check automatically because Validue create a Vue Watcher for watching field editing. This
 example close to the real task, all you need to append for work it's a business logic in the SignUp method
