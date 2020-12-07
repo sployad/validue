@@ -1,6 +1,6 @@
 {
   "name": "validue",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "This library is based on the \"class-validator\" library. It will help you easily validate your fields, forms and etc.. All you need to use is @PropertyValidate and @ActionValidate decorators, and all decorators from “class validator” such as @Max, @IsEmail and etc..",
   "main": "dist/index.js",
   "author": "sployad <roman@neretin.pro>",
